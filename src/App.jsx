@@ -12,20 +12,20 @@ function App() {
         Todo App with Login
       </header>
       <section className="App-container">
-      <BrowserRouter>
-        <Switch>
-          <Redirect exact from="/" to="/login" />
-          <Route
-            exact
-            path="/login"
-            component={ValidatedLoginForm}
-          />
-          <Route
-            path="/todo"
-            component={TodoApp}
-          />
-        </Switch>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Switch>
+            <Redirect exact from="/" to="/login" />
+            <Route
+              exact
+              path="/login"
+              component={ValidatedLoginForm}
+            />
+            <Route
+              path="/todo"
+              component={TodoApp}
+            />
+          </Switch>
+        </BrowserRouter>
       </section>
     </div>
   );
