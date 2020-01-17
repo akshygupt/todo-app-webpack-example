@@ -28,6 +28,8 @@
     "clean": "rm -rf dist/",
     "start": "webpack-dev-server --config webpack-config/basic/webpack.config.js --mode development --inline --hot",
     "build-basic": "npm run clean && webpack --config webpack-config/basic/webpack.config.js",
+    "build-code-split-entry": "npm run clean && webpack --config webpack-config/code-splitting/webpack.entry-point.config.js",
+    "build-code-split-chunks": "npm run clean && webpack --config webpack-config/code-splitting/webpack.splitchunk.config.js",
     "serve": "serve -s ./dist/"
   }
 }
