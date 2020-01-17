@@ -1,16 +1,38 @@
-const webpack = require('webpack');
+const webpack = require("webpack");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-const paths = require('../../paths');
+const paths = require("../../paths");
 
 module.exports = {
-    entry: {
-     index: './src/index.js',
-     app: './src/app.js'
-    },
-    devtool: "cheap-source-map",
-    output: {
-      filename: "[name].[chunkhash].bundle.js",
-      path: paths.appBuild
-    }
-  };
-  
+  entry: {
+    index: "./src/index.js",
+    app: "./src/App.jsx"
+  },
+  output: {
+    filename: "[name].[chunkhash].js",
+    path: paths.appBuild
+  },
+  mode: "production",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.(css)$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  },
+  devtool: "source-map",
+  plugins: [
+    new HtmlWebPackPlugin({
+      filename: "./index.html",
+      template: "./public/index.html"
+    })
+  ]
+};
