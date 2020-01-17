@@ -3,6 +3,7 @@ import React from 'react';
 import Title from './Title.jsx';
 import TodoForm from './TodoForm.jsx';
 import TodoList from './TodoList.jsx';
+import { isAuthenticated } from '../utils/authentication.js';
 
 // Contaner Component
 // Todo Id
@@ -19,13 +20,18 @@ export default class TodoApp extends React.Component {
   }
   // Lifecycle method
   componentDidMount() {
-    // Make HTTP reques with Axios
-    fetch(this.apiUrl)
+    if(isAuthenticated()) {
+      fetch(this.apiUrl)
       .then(res => res.json())
       .then((res) => {
         // Set state with result
         this.setState({ data: res });
       });
+    }
+    else {
+      this.props.push('/login');
+    }
+   
   }
   // Add todo handler
   addTodo(val) {

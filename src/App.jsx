@@ -5,7 +5,6 @@ import './App.css';
 import { BrowserRouter, Router, Switch, Redirect, Route } from 'react-router-dom';
 import ValidatedLoginForm from './Login/LoginForm.jsx';
 import TodoApp from "./Todo/TodoApp.jsx";
-import { isAuthenticated } from './utils/authentication';
 
 function App() {
   return (
@@ -20,11 +19,11 @@ function App() {
           <Route
             exact
             path="/login"
-            render={(props) => isAuthenticated() ? <Redirect to="/todo" /> : <ValidatedLoginForm {...props}/>}
+            component={ValidatedLoginForm}
           />
           <Route
             path="/todo"
-            render={(props) => !isAuthenticated() ? <Redirect to="/login" /> : <TodoApp {...props}/>}
+            component={TodoApp}
           />
         </Switch>
       </BrowserRouter>

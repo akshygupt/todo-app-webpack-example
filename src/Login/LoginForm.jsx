@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import {setLogin} from '../utils/authentication'; 
+import { setLogin, isAuthenticated } from '../utils/authentication';
 
 const ValidatedLoginForm = (props) => {
+    useEffect(() => {
+        if (isAuthenticated()) {
+            props.history.push('/todo');
+        }
+    }, [])
     return (
         <Formik
             initialValues={{ userName: "", password: "" }}
@@ -21,7 +26,7 @@ const ValidatedLoginForm = (props) => {
                     .required("Required"),
                 password: Yup.string()
                     .required("No password provided.")
-                    // .min(8, "Password is too short - should be 8 chars minimum.")
+                // .min(8, "Password is too short - should be 8 chars minimum.")
             })}
         >
             {props => {
