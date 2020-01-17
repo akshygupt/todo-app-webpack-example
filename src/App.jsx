@@ -1,9 +1,13 @@
 import React from 'react';
+import loadable from "@loadable/component";
 import './App.css';
 
 import { BrowserRouter, Router, Switch, Redirect, Route } from 'react-router-dom';
-import ValidatedLoginForm from './Login/LoginForm.jsx';
-import TodoApp from "./Todo/TodoApp.jsx";
+
+
+const ComonentLogin = loadable(() => import('./Login/LoginForm.jsx'))
+const ComonentTodoApp = loadable(() => import('./Todo/Todo.jsx'))
+
 
 function App() {
   return (
@@ -12,20 +16,20 @@ function App() {
         Todo App with Login
       </header>
       <section className="App-container">
-        <BrowserRouter>
-          <Switch>
-            <Redirect exact from="/" to="/login" />
-            <Route
-              exact
-              path="/login"
-              component={ValidatedLoginForm}
-            />
-            <Route
-              path="/todo"
-              component={TodoApp}
-            />
-          </Switch>
-        </BrowserRouter>
+          <BrowserRouter>
+            <Switch>
+              <Redirect exact from="/" to="/login" />
+              <Route
+                exact
+                path="/login"
+                render={() => <ComonentLogin />}
+              />
+              <Route
+                path="/todo"
+                render={() => <ComonentTodoApp />}
+              />
+            </Switch>
+          </BrowserRouter>
       </section>
     </div>
   );
