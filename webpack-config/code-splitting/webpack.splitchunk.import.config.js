@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const paths = require("paths");
 
@@ -8,39 +8,32 @@ module.exports = {
     index: "./src/index.js"
   },
   output: {
-    filename: "[name].[chunkhash].bundle.js",
+    filename: "[name].[chunkhash].js",
+    chunkFilename: "[name].[chunkhash].js",
+    publicPath: 'dist/',
     path: paths.appBuild
   },
-  devtool: "cheap-source-map",
-  optimization: {
-    splitChunks: {
-      chunks: "all"
-    }
+  mode: "production",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.(css)$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
   },
-  plugins: [new HtmlWebpackPlugin()]
+  devtool: "source-map",
+  plugins: [
+    new HtmlWebPackPlugin({
+      filename: "./index.html",
+      template: "./public/index.html"
+    })
+  ]
 };
-
-// the default config
-
-// splitChunks: {
-//   chunks: "all",
-//   cacheGroups: {
-//     vendors: {
-//       test: /[\\/]node_modules[\\/]/,
-//       priority: -10
-//     },
-//     default: {
-//       minChunks: 2,
-//       priority: -20,
-//       reuseExistingChunk: true
-//     }
-//   }
-// }
-
-// utils cachce groups
-// cacheGroups: {
-//   utilities: {
-//     test: /[\\/]src[\\/]utilities[\\/]/,
-//     minSize: 0
-//   }
-// }
