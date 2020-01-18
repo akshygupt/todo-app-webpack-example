@@ -1,6 +1,7 @@
 {
   "name": "todo-app-example",
   "version": "0.1.0",
+  "sideEffects": false,
   "private": true,
   "dependencies": {
     "@babel/core": "^7.8.3",

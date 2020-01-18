@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import loadable from "@loadable/component";
 import './App.css';
+import { square } from './mathUtility';
 
 import { BrowserRouter, Router, Switch, Redirect, Route } from 'react-router-dom';
 
@@ -45,6 +46,7 @@ function App() {
     {showFooter && (
         <Footer />
     )}
+    <h2>Tree shaking example {square(5)}</h2>
     </div>
   );
 }
