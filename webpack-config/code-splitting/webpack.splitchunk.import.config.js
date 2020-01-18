@@ -3,16 +3,17 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const paths = require("paths");
 
-module.exports = {
+module.exports = ({mode = 'production'}) => {
+return ({
   entry: {
     index: "./src/index.js"
   },
   output: {
-    filename: "[name].[chunkhash].js",
-    chunkFilename: "[name].[chunkhash].js",
+    filename: "[name].bundle.js",
+    chunkFilename: "[name].chunk.js",
     path: paths.appBuild
   },
-  mode: "development",
+  mode: mode,
   module: {
     rules: [
       {
@@ -35,4 +36,5 @@ module.exports = {
       template: "./public/index.html"
     })
   ]
-};
+});
+}
