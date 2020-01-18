@@ -33,6 +33,7 @@
     "build-code-split-entry": "npm run clean && webpack --mode production --config webpack-config/code-splitting/webpack.entry-point.config.js",
     "build-code-split-chunks": "npm run clean && webpack --mode production --config webpack-config/code-splitting/webpack.splitchunk.config.js",
     "build-code-split-import": "npm run clean && webpack --config webpack-config/code-splitting/webpack.splitchunk.import.config.js",
+    "start-dev": "webpack-dev-server --env.mode development --config webpack-config/code-splitting/webpack.splitchunk.import.config.js --inline --hot",
     "serve": "serve -s ./dist/"
   }
 }
