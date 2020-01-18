@@ -8,7 +8,7 @@ import { isAuthenticated } from '../utils/authentication.js';
 // Contaner Component
 // Todo Id
 window.id = 0;
-export default class TodoApp extends React.Component {
+export class TodoApp extends React.Component {
   constructor(props) {
     // Pass props to parent class
     super(props);
