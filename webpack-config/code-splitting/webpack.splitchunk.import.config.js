@@ -12,7 +12,7 @@ module.exports = {
     chunkFilename: "[name].[chunkhash].js",
     path: paths.appBuild
   },
-  mode: "production",
+  mode: "development",
   module: {
     rules: [
       {
