@@ -1,6 +1,7 @@
 {
   "name": "todo-app-example",
   "version": "0.1.0",
+  "sideEffects": false,
   "private": true,
   "dependencies": {
     "@babel/core": "^7.8.3",
@@ -32,7 +33,7 @@
     "build-basic": "npm run clean && webpack --config webpack-config/basic/webpack.config.js",
     "build-code-split-entry": "npm run clean && webpack --config webpack-config/code-splitting/webpack.entry-point.config.js",
     "build-code-split-chunks": "npm run clean && webpack --config webpack-config/code-splitting/webpack.splitchunk.config.js",
-    "build-code-split-import": "npm run clean && webpack --config webpack-config/code-splitting/webpack.splitchunk.import.config.js",
+    "build-code-split-import": "npm run clean && webpack --env.mode production --config webpack-config/code-splitting/webpack.splitchunk.import.config.js",
     "start-dev": "webpack-dev-server --env.mode development --config webpack-config/code-splitting/webpack.splitchunk.import.config.js --inline --hot",
     "serve": "serve -s ./dist/"
   }

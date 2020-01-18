@@ -30,6 +30,10 @@ return ({
     ]
   },
   devtool: "source-map",
+  optimization: {
+    minimize: true,
+    usedExports: true, // by default in production env
+   },
   plugins: [
     new HtmlWebPackPlugin({
       filename: "./index.html",
