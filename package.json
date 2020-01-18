@@ -1,10 +1,28 @@
 {
   "name": "todo-app-example",
   "version": "0.1.0",
+  "sideEffects": false,
   "private": true,
-  "dependencies": {
+  "dependencies": {},
+  "scripts": {
+    "analyze": "source-map-explorer dist/*.js",
+    "clean": "rm -rf dist/",
+    "start": "webpack-dev-server --config webpack-config/basic/webpack.config.js --mode development --inline --hot",
+    "build-basic": "npm run clean && webpack --config webpack-config/basic/webpack.config.js",
+    "build-code-split-entry": "npm run clean && webpack --config webpack-config/code-splitting/webpack.entry-point.config.js",
+    "build-code-split-chunks": "npm run clean && webpack --config webpack-config/code-splitting/webpack.splitchunk.config.js",
+    "build-code-split-import": "npm run clean && webpack --env.mode production --config webpack-config/code-splitting/webpack.splitchunk.import.config.js",
+    "start-dev": "webpack-dev-server --env.mode development --config webpack-config/code-splitting/webpack.splitchunk.import.config.js --inline --hot",
+    "serve": "serve -s ./dist/"
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "terser-webpack-plugin": "^2.3.2",
     "@babel/core": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "@loadable/component": "^5.12.0",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
     "bulma": "^0.8.0",
@@ -22,12 +40,5 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
     "yup": "^0.28.0"
-  },
-  "scripts": {
-    "analyze": "source-map-explorer dist/*.js",
-    "clean": "rm -rf dist/",
-    "start": "webpack-dev-server --config webpack-config/basic/webpack.config.js --mode development --inline --hot",
-    "build-basic": "npm run clean && webpack --config webpack-config/basic/webpack.config.js",
-    "serve": "serve -s ./dist/"
   }
 }
