@@ -1,5 +1,4 @@
 import React from 'react';
-import 'bulma/css/bulma.min.css';
 import './App.css';
 
 import { BrowserRouter, Router, Switch, Redirect, Route } from 'react-router-dom';
