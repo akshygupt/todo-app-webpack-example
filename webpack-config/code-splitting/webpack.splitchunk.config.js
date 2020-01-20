@@ -15,7 +15,7 @@ module.exports = (env, args) => {
       filename: "[name].[chunkhash].js",
       path: paths.appBuild
     },
-    mode: "production",
+    mode: mode,
     module: {
       rules: [
         {
