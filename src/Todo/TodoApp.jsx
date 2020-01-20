@@ -29,7 +29,7 @@ export default class TodoApp extends React.Component {
       });
     }
     else {
-      this.props.push('/login');
+      this.props.history.push('/login');
     }
    
   }
