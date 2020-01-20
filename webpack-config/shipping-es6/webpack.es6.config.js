@@ -12,7 +12,7 @@ module.exports = (env, args) => {
   const isProd = mode === "production";
   return {
     entry: {
-      index: "./src/index.js"
+      index: "./src/index.es6.js"
     },
     output: {
       filename: "[name].[chunkhash].es6.mjs",
