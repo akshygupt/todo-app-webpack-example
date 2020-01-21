@@ -1,7 +1,6 @@
 {
   "name": "todo-app-example",
   "version": "0.1.0",
-  "sideEffects": false,
   "private": true,
   "dependencies": {
     "@babel/core": "^7.8.3",
@@ -24,7 +23,10 @@
     "webpack": "4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
-    "yup": "^0.28.0"
+    "yup": "^0.28.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "terser-webpack-plugin": "^2.3.2"
   },
   "scripts": {
     "analyze": "source-map-explorer dist/*.js",
