@@ -42,7 +42,6 @@ module.exports = (env, args) => {
                 [
                   "@babel/preset-env",
                   {
-                    modules: false,
                     useBuiltIns: "entry",
                     targets: {
                       browsers: [
