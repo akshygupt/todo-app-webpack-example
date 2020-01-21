@@ -12,7 +12,7 @@ module.exports = (env, args) => {
   const isProd = mode === "production";
   return {
     entry: {
-      index: "./src/index.es6.js"
+      index: "./src/index.js"
     },
     output: {
       filename: "[name].[chunkhash].es6.mjs",
@@ -60,9 +60,7 @@ module.exports = (env, args) => {
         }
       ]
     },
-    devtool: "source-map",
-    // optimize: {
-    // },    
+    devtool: "source-map",    
     optimization: {
       minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin()],
       splitChunks: {
