@@ -4,14 +4,21 @@ import './App.css';
 
 import { BrowserRouter, Router, Switch, Redirect, Route } from 'react-router-dom';
 
-// with default component
-const ComonentLogin = loadable(() => import(/* webpackChunkName: "loginform", webpackPrefetch: true */ './Login/LoginForm.jsx'));
-const Footer = loadable(() => import(/* webpackChunkName: "footer", webpackPrefetch: true */'./Footer.jsx'));
+const ComonentLogin = loadable(() => import('./Login/LoginForm.jsx'));
+const Footer = loadable(() => import('./Footer.jsx'));
 
-// without default component
 const ComonentTodoApp = loadable(
-    () => import(/* webpackChunkName: "todoapp", webpackPrefetch: true */'./Todo/TodoApp.jsx').then(module => ({ default: module.TodoApp }))
+    () => import('./Todo/TodoApp.jsx').then(module => ({ default: module.TodoApp }))
 );
+
+// with default component
+// const ComonentLogin = loadable(() => import(/* webpackChunkName: "loginform", webpackPrefetch: true */ './Login/LoginForm.jsx'));
+// const Footer = loadable(() => import(/* webpackChunkName: "footer", webpackPrefetch: true */'./Footer.jsx'));
+
+// // without default component
+// const ComonentTodoApp = loadable(
+//     () => import(/* webpackChunkName: "todoapp", webpackPrefetch: true */'./Todo/TodoApp.jsx').then(module => ({ default: module.TodoApp }))
+// );
 // https://loadable-components.com/docs/getting-started/
 
 
