@@ -3,9 +3,10 @@ const express = require('express');
 const app = express();
 const { matchesUA } = require('browserslist-useragent')
 const path = require('path');
-const mime = require('mime');
+const compression = require('compression');
 
 app
+  .use(compression())
   .get('*', (req, res) => {
       const userAgent = req.get('User-Agent');
       const isModern = matchesUA(userAgent, {
