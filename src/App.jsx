@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import loadable from "@loadable/component";
-import 'bulma/css/bulma.min.css';
 import './App.css';
 import { square } from './mathUtility';
 
