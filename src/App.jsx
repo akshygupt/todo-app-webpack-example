@@ -6,7 +6,7 @@ import { BrowserRouter, Router, Switch, Redirect, Route } from 'react-router-dom
 
 
 const ComonentLogin = loadable(() => import('./Login/LoginForm.jsx'))
-const ComonentTodoApp = loadable(() => import('./Todo/Todo.jsx'))
+const ComonentTodoApp = loadable(() => import('./Todo/TodoApp.jsx'))
 
 
 function App() {
