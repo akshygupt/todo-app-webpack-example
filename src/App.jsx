@@ -22,11 +22,11 @@ function App() {
               <Route
                 exact
                 path="/login"
-                render={() => <ComonentLogin />}
+                render={(props) => <ComonentLogin {...props}/>}
               />
               <Route
                 path="/todo"
-                render={() => <ComonentTodoApp />}
+                render={(props) => <ComonentTodoApp {...props}/>}
               />
             </Switch>
           </BrowserRouter>
