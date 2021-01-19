@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { withRouter } from 'react-router-dom';
 
 import { setLogin, isAuthenticated } from '../utils/authentication';
 
@@ -89,4 +90,4 @@ const ValidatedLoginForm = (props) => {
     );
 }
 
-export default ValidatedLoginForm;
+export default withRouter(ValidatedLoginForm);
